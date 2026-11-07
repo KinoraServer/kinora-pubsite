@@ -1,0 +1,28 @@
+# Kinora
+
+> Kinora is a free, open-source (GPL-2.0), lightweight self-hosted media server for movies and TV shows. It is a single Rust binary with the web app built in, uses SQLite and FFmpeg, streams to browsers and a native Android TV app, and transcodes on the GPU (NVIDIA NVENC, Intel Quick Sync, AMD VAAPI, Apple VideoToolbox) only when a device can't play a file directly. It is a free alternative to Jellyfin, Plex and Emby for movie and TV libraries.
+
+Key facts:
+- Install: Docker image `ghcr.io/lancealthouse/kinora:latest` (amd64 and arm64), Docker Compose, or the Unraid template. Default port 8420.
+- Hardware transcoding is free; there is no paid tier or cloud account.
+- Supports HDR10, HLG and Dolby Vision; Dolby Vision profile 8.1 plays as HDR10 without transcoding; tone mapping to SDR with libplacebo (GPU) or zscale (CPU).
+- TMDB metadata and artwork, users with roles, resume and watched state, automatic audio and subtitle selection per show, themes, toggleable modules.
+- Remote access through Tailscale or any reverse proxy (Caddy, Nginx, Traefik), including sub-paths.
+- Not yet available: music, audiobooks, photos, live TV/DVR, iOS and Apple TV apps.
+
+## Docs
+
+- [Introduction](https://kinoraserver.com/docs/): what Kinora is and what works today
+- [Install with Docker](https://kinoraserver.com/docs/install/docker/): docker run and Docker Compose, GPU flags
+- [Install on Unraid](https://kinoraserver.com/docs/install/unraid/): template, appdata paths, NVIDIA and Intel GPUs
+- [Hardware transcoding](https://kinoraserver.com/docs/guides/hardware-transcoding/): NVENC, Quick Sync, VAAPI, VideoToolbox, HDR and Dolby Vision
+- [Remote access](https://kinoraserver.com/docs/guides/remote-access/): Tailscale and reverse proxies
+- [Themes](https://kinoraserver.com/docs/guides/themes/): built-in themes and custom JSON themes
+- [Automatic audio and subtitles](https://kinoraserver.com/docs/guides/auto-tracks/)
+- [Android TV app](https://kinoraserver.com/docs/guides/android-tv/): sideloading on NVIDIA Shield
+
+## Optional
+
+- [Kinora vs Jellyfin, Plex and Emby](https://kinoraserver.com/docs/compare/): honest feature comparison
+- [FAQ](https://kinoraserver.com/docs/faq/)
+- [Source code](https://github.com/LanceAlthouse/kinora)
