@@ -1,0 +1,10 @@
+{
+  // Static site: wrangler uploads the Astro build output as Worker assets.
+  // No Worker script and no Astro adapter needed.
+  "name": "kinora-pubsite",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
