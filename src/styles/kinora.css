@@ -1,0 +1,56 @@
+/* Kinora Green, matching the built-in "Kinora" theme in the server's web app. */
+/* Inter is used when installed; otherwise the system UI font. No web-font service. */
+
+:root {
+  --sl-font: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Dark mode (default look) */
+:root,
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #12392a;
+  --sl-color-accent: #2bd48f;
+  --sl-color-accent-high: #b8f3d9;
+  --sl-color-white: #ecf7f1;
+  --sl-color-gray-1: #d3e4db;
+  --sl-color-gray-2: #b1c6bb;
+  --sl-color-gray-3: #8fa79b;
+  --sl-color-gray-4: #4f685c;
+  --sl-color-gray-5: #22382e;
+  --sl-color-gray-6: #13221c;
+  --sl-color-black: #0b1612;
+  --sl-color-text-accent: #2bd48f;
+}
+
+/* Light mode */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #cdeedd;
+  --sl-color-accent: #0a7f50;
+  --sl-color-accent-high: #064d31;
+  --sl-color-white: #0b1612;
+  --sl-color-gray-1: #13221c;
+  --sl-color-gray-2: #22382e;
+  --sl-color-gray-3: #4f685c;
+  --sl-color-gray-4: #8fa79b;
+  --sl-color-gray-5: #c9dbd1;
+  --sl-color-gray-6: #e6f0ea;
+  --sl-color-gray-7: #f0f7f3;
+  --sl-color-black: #f5faf7;
+  --sl-color-text-accent: #0a7f50;
+}
+
+/* Landing page */
+.hero img {
+  max-width: 18rem;
+}
+
+.screenshot {
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 60px rgb(0 0 0 / 0.35);
+}
+
+a,
+button {
+  cursor: pointer;
+}

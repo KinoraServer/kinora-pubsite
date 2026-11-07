@@ -1,0 +1,110 @@
+---
+title: Lightweight self-hosted media server
+description: Kinora is a free, lightweight, self-hosted media server for movies and TV shows. One Rust binary with GPU transcoding, HDR and Dolby Vision, an Android TV app, and Docker and Unraid installs.
+template: splash
+head:
+  - tag: script
+    attrs:
+      type: application/ld+json
+    content: |
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://kinoraserver.com/#software",
+            "name": "Kinora",
+            "url": "https://kinoraserver.com/",
+            "description": "A lightweight, self-hosted media server for movies and TV shows. One Rust binary with GPU transcoding, HDR and Dolby Vision support, and an Android TV app.",
+            "applicationCategory": "MultimediaApplication",
+            "applicationSubCategory": "Media server",
+            "operatingSystem": "Linux, Docker, Unraid, Windows, macOS",
+            "license": "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html",
+            "image": "https://kinoraserver.com/og.png",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "featureList": [
+              "Hardware transcoding with NVENC, Quick Sync, VAAPI and VideoToolbox",
+              "HDR10, HLG and Dolby Vision with tone mapping to SDR",
+              "Direct play whenever the device supports the file",
+              "TMDB metadata and artwork",
+              "Automatic audio and subtitle track selection",
+              "Themes and toggleable modules",
+              "Native Android TV app"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://kinoraserver.com/#website",
+            "name": "Kinora",
+            "url": "https://kinoraserver.com/"
+          }
+        ]
+      }
+hero:
+  title: Your movies and shows, served light.
+  tagline: Kinora is a self-hosted media server in a single Rust binary. Point it at your library, and it fetches the artwork, plays files as they are when it can, and transcodes on your GPU when it can't.
+  image:
+    file: ../../assets/mark.svg
+    alt: Kinora logo
+  actions:
+    - text: Install with Docker
+      link: /docs/install/docker/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/LanceAlthouse/kinora
+      icon: github
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import themes from '../../assets/screenshot-themes.png';
+
+## Why Kinora
+
+<CardGrid>
+  <Card title="Tiny and fast" icon="rocket">
+    One Rust binary with the web app built in, SQLite for storage and FFmpeg for video.
+    Runs happily on a NAS.
+  </Card>
+  <Card title="GPU transcoding" icon="setting">
+    NVENC, Quick Sync, VAAPI and VideoToolbox, each checked with a real test encode,
+    with CPU fallback when no GPU is there.
+  </Card>
+  <Card title="HDR and Dolby Vision" icon="star">
+    HDR10, HLG and Dolby Vision detection. Profile 8.1 plays as HDR10 without transcoding,
+    and tone mapping to SDR when a screen needs it.
+  </Card>
+  <Card title="Picks the right tracks" icon="comment-alt">
+    Remembers your audio and subtitle choices per show and library, so the next episode starts the way
+    you like it.
+  </Card>
+  <Card title="Themes and modules" icon="puzzle">
+    Six built-in themes with light and dark modes, plus your own JSON themes. Turn off any
+    module you don't use.
+  </Card>
+  <Card title="Android TV" icon="laptop">
+    A native app that direct-plays what your TV can decode, Dolby Vision included. Tested on
+    the NVIDIA Shield.
+  </Card>
+</CardGrid>
+
+## Make it yours
+
+<Image src={themes} alt="Kinora's theme picker with Kinora, Midnight, OLED Black and Ember themes" class="screenshot" />
+
+## Up and running in a minute
+
+```bash
+docker run -d --name kinora -p 8420:8420 \
+  -v /path/to/config:/config \
+  -v /path/to/media:/media:ro \
+  ghcr.io/lancealthouse/kinora:latest
+```
+
+Then open `http://<server-ip>:8420` and create your account.
+See the [Docker guide](/docs/install/docker/) for GPUs and compose, or the
+[Unraid guide](/docs/install/unraid/).
+
+Kinora is free and open source under the GPL-2.0 license. Wondering how it stacks up against
+Jellyfin, Plex or Emby? See the [honest comparison](/docs/compare/).
