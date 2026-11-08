@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 const REPO = 'https://github.com/LanceAlthouse/kinora';
+const DISCORD = 'https://discord.gg/7SpgFvV2xu';
+const REDDIT = 'https://www.reddit.com/r/KinoraServer/';
 
 export default defineConfig({
   site: 'https://kinoraserver.com',
@@ -28,7 +30,14 @@ export default defineConfig({
         { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://kinoraserver.com/og.png' } },
         { tag: 'link', attrs: { rel: 'alternate', type: 'text/plain', title: 'LLM summary', href: '/llms.txt' } },
       ],
-      social: [{ icon: 'github', label: 'GitHub', href: REPO }],
+      social: [
+        { icon: 'github', label: 'GitHub', href: REPO },
+        { icon: 'discord', label: 'Discord', href: DISCORD },
+        { icon: 'reddit', label: 'Reddit', href: REDDIT },
+      ],
+      components: {
+        SocialIcons: './src/components/SocialIcons.astro',
+      },
       customCss: ['./src/styles/kinora.css'],
       sidebar: [
         {
